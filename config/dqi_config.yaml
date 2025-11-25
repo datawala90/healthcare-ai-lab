@@ -1,0 +1,27 @@
+project_name: agentic_dqi_healthcare
+
+paths:
+  baseline_claims: data/dqi/raw/claims_baseline.csv
+  current_claims: data/dqi/raw/claims_current.csv
+  report_md: outputs/dqi/reports/dqi_report.md
+  report_json: outputs/dqi/json/dqi_report.json
+
+columns:
+  numeric:
+    - charge_amount
+    - paid_amount
+  categorical:
+    - status
+    - cpt_code
+  id:
+    - claim_id
+
+drift_thresholds:
+  volume_drop_pct: 0.2      # >20% drop = anomaly
+  volume_increase_pct: 0.5  # >50% increase = anomaly
+  null_increase_pct: 0.1    # >10% more nulls = anomaly
+  mean_change_pct: 0.3      # >30% mean change = anomaly
+
+llm:
+  model: llama3.2:3b
+  temperature: 0.1

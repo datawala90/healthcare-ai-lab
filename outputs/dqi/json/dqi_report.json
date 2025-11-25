@@ -1,0 +1,57 @@
+{
+  "metrics": {
+    "baseline_rows": 600,
+    "current_rows": 400,
+    "volume_change_pct": -0.3333333333333333,
+    "column_null_change_pct": {
+      "claim_id": 0.0,
+      "claim_date": 0.0,
+      "member_id": 0.1625,
+      "provider_id": 0.0,
+      "cpt_code": 0.0,
+      "charge_amount": 0.0,
+      "paid_amount": 0.0,
+      "status": 0.0
+    },
+    "numeric_mean_change_pct": {
+      "charge_amount": 0.9164467838483038,
+      "paid_amount": 1.081041855958549
+    },
+    "categorical_dist_change": {
+      "status": {
+        "PENDING": -0.04083333333333333,
+        "DENIED": 0.17250000000000004,
+        "PAID": -0.1316666666666667
+      },
+      "cpt_code": {
+        "99232": -0.3466666666666667,
+        "99285": 0.5025,
+        "J8499": 0.4975,
+        "99213": -0.31666666666666665,
+        "99214": -0.33666666666666667
+      }
+    }
+  },
+  "analysis": {
+    "summary": {
+      "data_drift": true,
+      "type": [
+        "volume",
+        "nulls",
+        "amounts"
+      ]
+    },
+    "severity": "MEDIUM",
+    "suspected_causes": [
+      "ETL issue",
+      "upstream system change",
+      "real business event"
+    ],
+    "recommended_checks": [
+      "Verify ETL pipeline for data quality and integrity",
+      "Check upstream systems for changes or updates that may be affecting data",
+      "Monitor business events and adjust data processing accordingly"
+    ],
+    "business_risk": "Potential impact on claims processing and payment accuracy"
+  }
+}
